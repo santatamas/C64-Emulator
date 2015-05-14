@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoConsoleApp
 {
+    /* test comment */
     class Program
     {
         static void Main(string[] args)
