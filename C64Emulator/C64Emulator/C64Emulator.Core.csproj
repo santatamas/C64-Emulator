@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AssemblyInstructions.cs" />
+    <Compile Include="Instructions\BNE.cs" />
     <Compile Include="Instructions\BRK.cs" />
+    <Compile Include="Instructions\CPX.cs" />
     <Compile Include="Instructions\INX.cs" />
     <Compile Include="Instructions\INY.cs" />
     <Compile Include="Instructions\LDA.cs" />

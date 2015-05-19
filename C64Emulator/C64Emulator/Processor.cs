@@ -18,6 +18,8 @@ namespace C64Emulator
         public byte P { get; set; }
         public ushort PC { get; set; }
 
+        public bool Zero;
+
         static ushort ToShort(byte byteL, byte byteH)
         {
             return (ushort)((byteH << 8) | (byteL << 0));
