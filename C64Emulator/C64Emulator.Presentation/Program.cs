@@ -37,7 +37,7 @@ namespace C64Emulator.Presentation
                         {
                             if (x >= ConsoleWidth || y >= ConsoleHeight) continue;
 
-                            fastConsole.SetForeColor(x,y, display.ReadColor(x,y));
+                            //fastConsole.SetForeColor(x,y, display.ReadColor(x,y));
                             fastConsole.SetChar(x, y, current[x, y]);
                         }
                     }

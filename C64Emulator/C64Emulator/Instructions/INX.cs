@@ -9,11 +9,11 @@ namespace C64Emulator
 {
     partial class Processor
     {
-        private void LDX(AddressingMode mode)
+        private void INX(AddressingMode mode)
         {
-            if (mode == AddressingMode.Immidiate)
+            if (mode == AddressingMode.Implied)
             {
-                X = _memory.ReadAbsolute(++PC);
+                X++;
                 StatusZ = X == 0;
                 StatusN = X > 127;
             }

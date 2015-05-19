@@ -13,9 +13,11 @@ namespace C64Emulator
         {
             if (mode == AddressingMode.Absolute) /*8D*/
             {
-                Y = _memory.ReadAbsolute(++PC);
-                X = _memory.ReadAbsolute(++PC);
-                _memory.WriteAbsolute(ToShort(X, Y), A);
+                _memory.WriteAbsolute(ToShort(_memory.ReadAbsolute(++PC), _memory.ReadAbsolute(++PC)), A);
+            }
+            else if (mode == AddressingMode.AbsoluteX)
+            {
+                _memory.WriteAbsolute((ushort)(ToShort(_memory.ReadAbsolute(++PC), _memory.ReadAbsolute(++PC)) + X), A);
             }
         }
     }
