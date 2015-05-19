@@ -18,7 +18,41 @@ namespace C64Emulator
         public byte P { get; set; }
         public ushort PC { get; set; }
 
-        public bool Zero;
+        public bool StatusC
+        {
+            get { return (S & 0x01u) == 0x01u; }
+            set
+            {
+                if (value)
+                    S |= (byte)0x01u;
+                else
+                    S &= unchecked((byte)~0x01u);
+            }
+        }
+
+        public bool StatusZ
+        {
+            get { return (S & 0x02u) == 0x02u; }
+            set
+            {
+                if (value)
+                    S |= (byte)0x02u;
+                else
+                    S &= unchecked((byte)~0x02u);
+            }
+        }
+
+        public bool StatusN
+        {
+            get { return (S & 0x80u) == 0x80u; }
+            set
+            {
+                if (value)
+                    S |= (byte)0x80u;
+                else
+                    S &= unchecked((byte)~0x80u);
+            }
+        }
 
         static ushort ToShort(byte byteL, byte byteH)
         {
@@ -42,7 +76,8 @@ namespace C64Emulator
                 Action<AddressingMode> instrAction;
                 instructions.TryGetValue(instr.InstructionType, out instrAction);
                 if (instrAction == null)
-                    throw new NotImplementedException();
+                    //throw new NotImplementedException();
+                    continue;
 
                 instrAction(instr.AddressingMode);
 
@@ -80,7 +115,7 @@ namespace C64Emulator
             instructions[AssemblyInstructionType.DEY] = null;
             instructions[AssemblyInstructionType.EOR] = null;
             instructions[AssemblyInstructionType.INC] = null;
-            instructions[AssemblyInstructionType.INX] = null;
+            instructions[AssemblyInstructionType.INX] = INX;
             instructions[AssemblyInstructionType.INY] = null;
             instructions[AssemblyInstructionType.JMP] = null;
             instructions[AssemblyInstructionType.JSR] = null;
