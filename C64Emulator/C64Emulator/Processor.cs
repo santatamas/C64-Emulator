@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hackaton;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +39,15 @@ namespace C64Emulator.Processor
 
         public void Start(byte PCH, byte PCL)
         {
+            while (true)
+            {
+                var instrCode = _memory.ReadAbsolute(PC);
+                var instr = AssemblyInstructions.GetInstruction(instrCode);
+                if (instr.InstructionType == AssemblyInstructionType.BRK)
+                    break;
 
+
+            }
         }
     }
 }
