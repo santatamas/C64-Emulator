@@ -14,6 +14,7 @@ namespace C64Emulator
             if (mode == AddressingMode.Absolute)
             {
                 A = Y;
+                PC++;
             }
         }
     }

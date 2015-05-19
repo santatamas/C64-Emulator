@@ -12,8 +12,6 @@ namespace C64Emulator
         private void BNE(AddressingMode mode)
         {
             PC++;
-            if (Zero)
-
         }
     }
 }

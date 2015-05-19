@@ -13,8 +13,8 @@ namespace C64Emulator
         {
             if (mode == AddressingMode.Immidiate)
             {
-                var a = _memory.ReadAbsolute(++PC);
-                var b = _memory.ReadAbsolute(++PC);
+                var a = _memory.ReadAbsolute(PC++);
+                var b = _memory.ReadAbsolute(PC++);
                 var c = _memory.ReadAbsolute(ToShort(a, b));
                 Zero = (c == X);
                 PC++;

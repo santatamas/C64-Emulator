@@ -13,7 +13,7 @@ namespace C64Emulator
         {
             if (mode == AddressingMode.Immidiate)
             {
-                A = _memory.ReadAbsolute(++PC);
+                A = _memory.ReadAbsolute(PC++);
             }
         }
     }
