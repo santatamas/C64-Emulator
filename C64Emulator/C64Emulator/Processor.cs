@@ -18,9 +18,9 @@ namespace C64Emulator
         public byte P { get; set; }
         public ushort PC { get; set; }
 
-        static ushort ToShort(byte byte1, byte byte2)
+        static ushort ToShort(byte byteL, byte byteH)
         {
-            return (ushort)((byte2 << 8) | (byte1 << 0));
+            return (ushort)((byteH << 8) | (byteL << 0));
         }
 
         public Processor (Memory memory)
@@ -31,11 +31,11 @@ namespace C64Emulator
 
         public void Start(byte PCH, byte PCL)
         {
-            PC = ToShort(PCH, PCL);
+            PC = ToShort(PCL, PCH);
 
             while (true)
             {
-                var instrCode = _memory.ReadAbsolute(PC);
+                var instrCode = _memory.ReadAbsolute(PC++);
                 var instr = AssemblyInstructions.GetInstruction(instrCode);
                 Action<AddressingMode> instrAction;
                 instructions.TryGetValue(instr.InstructionType, out instrAction);
