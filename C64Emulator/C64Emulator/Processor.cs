@@ -12,8 +12,8 @@ namespace C64Emulator.Processor
         private Memory _memory;
 
         public byte A { get; set; }
-        public byte Y { get; set; }
-        public byte X { get; set; }
+        public byte Y { get; set; } // low
+        public byte X { get; set; } // high
         public byte S { get; set; }
         public byte P { get; set; }
         public ushort PC { get; set; }
@@ -43,15 +43,15 @@ namespace C64Emulator.Processor
                 {
                     if (instr.AddressingMode == AddressingMode.Immidiate)
                     {
-                        PC++;
-                        A = _memory.ReadAbsolute(PC);
+                        A = _memory.ReadAbsolute(++PC);
                     }
                 } else if (instr.InstructionType == AssemblyInstructionType.STA)
                 {
                     if (instr.AddressingMode == AddressingMode.Absolute) /*8D*/
                     {
-                        PC++;
-                        A = _memory.ReadAbsolute(PC);
+                        Y = _memory.ReadAbsolute(++PC);
+                        X = _memory.ReadAbsolute(++PC);
+                        _memory.WriteAbsolute(ToShort(X, Y), A);
                     }
                 }
                 //======================================================================================================
