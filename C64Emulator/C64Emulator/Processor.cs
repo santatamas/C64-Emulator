@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C64Emulator.Processor
 {
-    class Processor
+    public class Processor
     {
         private Memory _memory;
 
@@ -17,6 +17,19 @@ namespace C64Emulator.Processor
         public byte PCL { get; set; }
         public byte S { get; set; }
         public byte P { get; set; }
+
+        static ushort ToShort(byte byte1, byte byte2)
+        {
+            return (ushort)((byte2 << 8) | (byte1 << 0));
+        }
+
+        public ushort PC
+        {
+            get
+            {
+                return ToShort(PCL, PCH);
+            }
+        }
 
         public Processor (Memory memory)
         {
