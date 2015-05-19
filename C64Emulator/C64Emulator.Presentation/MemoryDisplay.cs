@@ -6,6 +6,7 @@ namespace C64Emulator.Presentation
     public class MemoryDisplay
     {
         private ushort _screenStartAddress = 0x400;
+        private ushort _colorStartAddress = 0xD800;
         private Memory _memory;
         private byte _width = 40;
         private byte _height = 25;
@@ -27,6 +28,11 @@ namespace C64Emulator.Presentation
                 }
             }
             return result;
+        }
+
+        public ConsoleColor ReadColor(byte x, byte y)
+        {
+            return C64ColorConverter.ByteToColor(_memory.ReadAbsolute((ushort)(_colorStartAddress + x + (y * x))));
         }
     }
 }

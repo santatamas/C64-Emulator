@@ -31,12 +31,14 @@ namespace C64Emulator.Presentation
                 while (true)
                 {
                     var current = display.ReadCurrentState();
-                    for (int x = 0; x < current.GetLength(0); x += 1)
+                    for (byte x = 0; x < current.GetLength(0); x += 1)
                     {
-                        for (int y = 0; y < current.GetLength(1); y += 1)
+                        for (byte y = 0; y < current.GetLength(1); y += 1)
                         {
-                            if (x < ConsoleWidth && y < ConsoleHeight)
-                                fastConsole.SetChar(x,y,current[x, y]);
+                            if (x >= ConsoleWidth || y >= ConsoleHeight) continue;
+
+                            fastConsole.SetForeColor(x,y, display.ReadColor(x,y));
+                            fastConsole.SetChar(x, y, current[x, y]);
                         }
                     }
                     Thread.Sleep(50);
