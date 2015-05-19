@@ -48,7 +48,7 @@ namespace C64Emulator.Processor
                     }
                 } else if (instr.InstructionType == AssemblyInstructionType.STA)
                 {
-                    if (instr.AddressingMode == AddressingMode.Immidiate)
+                    if (instr.AddressingMode == AddressingMode.Absolute) /*8D*/
                     {
                         PC++;
                         A = _memory.ReadAbsolute(PC);
