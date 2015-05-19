@@ -51,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\C64Emulator.Loader\C64Emulator.Loader.csproj">
+      <Project>{61312878-37de-4c13-9f6f-85591fb5c957}</Project>
+      <Name>C64Emulator.Loader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\C64Emulator\C64Emulator.Core.csproj">
       <Project>{d1c54b60-4c18-4494-b9ce-114fda8d74a5}</Project>
       <Name>C64Emulator.Core</Name>
