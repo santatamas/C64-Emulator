@@ -9,12 +9,21 @@ namespace C64Emulator.Processor
     class Processor
     {
         private Memory _memory;
+
+        public byte A { get; set; }
+        public byte Y { get; set; }
+        public byte X { get; set; }
+        public byte PCH { get; set; }
+        public byte PCL { get; set; }
+        public byte S { get; set; }
+        public byte P { get; set; }
+
         public Processor (Memory memory)
         {
             _memory = memory;
         }
 
-        public void Start()
+        public void Start(byte PCH, byte PCL)
         {
 
         }
