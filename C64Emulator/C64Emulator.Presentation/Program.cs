@@ -11,11 +11,12 @@ namespace C64Emulator.Presentation
             {
                 var programPath = args[0];
                 var memory = new Memory();
-                var processor = new Processor.Processor(memory);
+                var processor = new Processor(memory);
                 var loader = new AsmLoader(memory);
 
                 loader.ReadFile(programPath);
                 processor.Start(loader.StartPCH, loader.StartPCL);
+                Console.ReadLine();
             }
             else
             {
