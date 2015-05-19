@@ -9,12 +9,12 @@ namespace C64Emulator
 {
     partial class Processor
     {
-        private void INX(AddressingMode mode)
+        private void TYA(AddressingMode mode)
         {
-            X++;
-            StatusZ = X == 0;
-            StatusN = X > 127;
-            PC++;
+            if (mode == AddressingMode.Absolute)
+            {
+                A = Y;
+            }
         }
     }
 }
