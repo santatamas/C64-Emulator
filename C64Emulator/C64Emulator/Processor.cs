@@ -22,7 +22,7 @@ namespace C64Emulator
 
         static ushort ToShort(byte byteL, byte byteH)
         {
-            return (ushort)((byteH << 8) | (byteL << 0));
+            return BitConverter.ToUInt16(new[] {byteH, byteL},0);
         }
 
         public Processor (Memory memory)

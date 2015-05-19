@@ -20,7 +20,7 @@ namespace C64Emulator.Loader
             byte[] fileContent = File.ReadAllBytes(path);
             StartPCH = fileContent[1];
             StartPCL = fileContent[0];
-            StartAddress = BitConverter.ToUInt16(fileContent, 0);
+            StartAddress = BitConverter.ToUInt16(new[]{StartPCH, StartPCL}, 0);
 
             var currentAddress = StartAddress;
             for (int i = 2; i < fileContent.Length; i++)
