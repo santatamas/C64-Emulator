@@ -8,5 +8,15 @@ namespace C64Emulator.Processor
 {
     class Processor
     {
+        private Memory _memory;
+        public Processor (Memory memory)
+        {
+            _memory = memory;
+        }
+
+        public void Start()
+        {
+
+        }
     }
 }
