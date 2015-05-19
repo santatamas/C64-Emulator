@@ -39,7 +39,7 @@ namespace C64Emulator.Processor
                 if (instr.InstructionType == AssemblyInstructionType.BRK)
                     break;
 
-                if (instr.InstructionType == AssemblyInstructionType.LDA)
+                if (instr.InstructionType == AssemblyInstructionType.LDA) /*A9*/
                 {
                     if (instr.AddressingMode == AddressingMode.Immidiate)
                     {
@@ -52,7 +52,17 @@ namespace C64Emulator.Processor
                         Y = _memory.ReadAbsolute(PC++);
                         X = _memory.ReadAbsolute(PC++);
                         _memory.WriteAbsolute(ToShort(Y, X), A);
+                    } else if (instr.AddressingMode == AddressingMode.ZeroPageX)
+                    {
                     }
+                } else if (instr.InstructionType == AssemblyInstructionType.INX)
+                {
+                    X++;
+                    PC++;
+                } else if (instr.InstructionType == AssemblyInstructionType.INY)
+                {
+                    Y++;
+                    PC++;
                 }
                 //======================================================================================================
 
