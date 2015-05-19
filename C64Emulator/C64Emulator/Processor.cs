@@ -18,9 +18,9 @@ namespace C64Emulator.Processor
         public byte P { get; set; }
         public ushort PC { get; set; }
 
-        static ushort ToShort(byte byte1, byte byte2)
+        static ushort ToShort(byte byteL, byte byteH)
         {
-            return (ushort)((byte2 << 8) | (byte1 << 0));
+            return (ushort)((byteH << 8) | (byteL << 0));
         }
 
         public Processor (Memory memory)
@@ -30,11 +30,11 @@ namespace C64Emulator.Processor
 
         public void Start(byte PCH, byte PCL)
         {
-            PC = ToShort(PCH, PCL);
+            PC = ToShort(PCL, PCH);
 
             while (true)
             {
-                var instrCode = _memory.ReadAbsolute(PC);
+                var instrCode = _memory.ReadAbsolute(PC++);
                 var instr = AssemblyInstructions.GetInstruction(instrCode);
                 if (instr.InstructionType == AssemblyInstructionType.BRK)
                     break;
@@ -43,15 +43,15 @@ namespace C64Emulator.Processor
                 {
                     if (instr.AddressingMode == AddressingMode.Immidiate)
                     {
-                        A = _memory.ReadAbsolute(++PC);
+                        A = _memory.ReadAbsolute(PC++);
                     }
                 } else if (instr.InstructionType == AssemblyInstructionType.STA)
                 {
                     if (instr.AddressingMode == AddressingMode.Absolute) /*8D*/
                     {
-                        Y = _memory.ReadAbsolute(++PC);
-                        X = _memory.ReadAbsolute(++PC);
-                        _memory.WriteAbsolute(ToShort(X, Y), A);
+                        Y = _memory.ReadAbsolute(PC++);
+                        X = _memory.ReadAbsolute(PC++);
+                        _memory.WriteAbsolute(ToShort(Y, X), A);
                     }
                 }
                 //======================================================================================================
