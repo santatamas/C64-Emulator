@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F6CE682B-AF4C-4EA4-B4F1-57969EA1B7CB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{D1C54B60-4C18-4494-B9CE-114FDA8D74A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DemoConsoleApp</RootNamespace>
-    <AssemblyName>DemoConsoleApp</AssemblyName>
+    <RootNamespace>C64Emulator</RootNamespace>
+    <AssemblyName>C64Emulator</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,11 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Helpers\AssemblyInstructions.cs" />
+    <Compile Include="Memory.cs" />
+    <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Folder Include="Instructions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Docs\6510 ADDRESSING MODES.txt" />
+    <Content Include="Docs\6510 INSTRUCTION SET.txt" />
+    <Content Include="Docs\6510 MEMORY MAP.txt" />
+    <Content Include="Docs\6510 REGISTERS.txt" />
+    <Content Include="Docs\c64prg10.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

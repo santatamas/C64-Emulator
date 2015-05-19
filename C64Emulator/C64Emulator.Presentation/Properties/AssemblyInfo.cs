@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DemoConsoleApp")]
+[assembly: AssemblyTitle("C64Emulator.Presentation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EPAM Systems")]
-[assembly: AssemblyProduct("DemoConsoleApp")]
+[assembly: AssemblyProduct("C64Emulator.Presentation")]
 [assembly: AssemblyCopyright("Copyright © EPAM Systems 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9304cc8d-a193-4ca1-82fe-51f16af87ad7")]
+[assembly: Guid("1d8edd71-fc7c-47a4-9a7f-c8617d3922bd")]
 
 // Version information for an assembly consists of the following four values:
 //
