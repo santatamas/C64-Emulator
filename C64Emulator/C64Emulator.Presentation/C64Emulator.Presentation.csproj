@@ -44,11 +44,16 @@
     <Compile Include="Helpers\C64CharConverter.cs" />
     <Compile Include="Helpers\C64ColorConverter.cs" />
     <Compile Include="Helpers\FastConsole.cs" />
+    <Compile Include="MemoryDisplay.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\1_first.prg" />
+    <None Include="Resources\2_loop.prg" />
+    <None Include="Resources\3_subroutine.prg" />
+    <None Include="Resources\4_colors.prg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C64Emulator.Loader\C64Emulator.Loader.csproj">
@@ -59,6 +64,12 @@
       <Project>{d1c54b60-4c18-4494-b9ce-114fda8d74a5}</Project>
       <Name>C64Emulator.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1_First.asm" />
+    <Content Include="Resources\2_Loop.asm" />
+    <Content Include="Resources\3_SubRoutine.asm" />
+    <Content Include="Resources\4_Colors.asm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

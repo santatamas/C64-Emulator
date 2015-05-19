@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using C64Emulator.Loader;
 
 namespace C64Emulator.Presentation
@@ -15,7 +16,14 @@ namespace C64Emulator.Presentation
                 var loader = new AsmLoader(memory);
 
                 loader.ReadFile(programPath);
-                processor.Start(loader.StartPCH, loader.StartPCL);
+                var processorThread = new Thread(() => processor.Start(loader.StartPCH, loader.StartPCL))
+                {
+                    IsBackground = true
+                };
+                processorThread.Start();
+
+
+
             }
             else
             {

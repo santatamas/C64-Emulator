@@ -18,8 +18,8 @@ namespace C64Emulator.Loader
         public void ReadFile(string path)
         {
             byte[] fileContent = File.ReadAllBytes(path);
-            StartPCH = fileContent[0];
-            StartPCL = fileContent[1];
+            StartPCH = fileContent[1];
+            StartPCL = fileContent[0];
             StartAddress = BitConverter.ToUInt16(fileContent, 0);
 
             var currentAddress = StartAddress;
