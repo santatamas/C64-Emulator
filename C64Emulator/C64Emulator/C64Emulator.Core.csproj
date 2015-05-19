@@ -40,13 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AssemblyInstructions.cs" />
+    <Compile Include="Instructions\BRK.cs" />
+    <Compile Include="Instructions\LDA.cs" />
+    <Compile Include="Instructions\LDX.cs" />
+    <Compile Include="Instructions\STA.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Instructions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Docs\6510 ADDRESSING MODES.txt" />
     <Content Include="Docs\6510 INSTRUCTION SET.txt" />
