@@ -32,7 +32,8 @@ namespace C64Emulator.Presentation
 
         public ConsoleColor ReadColor(byte x, byte y)
         {
-            return C64ColorConverter.ByteToColor(_memory.ReadAbsolute((ushort)(_colorStartAddress + x + (y * x))));
+            return ConsoleColor.White;
+            //return C64ColorConverter.ByteToColor(_memory.ReadAbsolute((ushort)(_colorStartAddress + x + (y * x))));
         }
     }
 }
