@@ -1,2 +1,3 @@
-# slb-hackathon
-hackathon repo - team 1
+C64 Emulator
+===
+made for the slb hackathon (3hrs quick coding competition)
