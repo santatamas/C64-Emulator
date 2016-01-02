@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fmodern\fcharset0 CourierNewPSMT;
+}
+{\colortbl;\red255\green255\blue255;\red25\green25\blue25;\red255\green255\blue255;\red0\green0\blue233;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\sa0\partightenfactor0
+
+\f0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 1.\
+ROM bet\'f6lt\'e9se (nincs az elej\'e9n address)\
+\'a0\
+64c.251913-01.bin\
+\'a0\
+Az els\uc0\u337  8k $A0000 \'96t\'f3l\
+A masodik 8k $E0000\'a0 -t\'f3l\
+\'a0\
+Rom indit\'e1sa $FCE2\'a0 cimrol.\
+\'a0\
+Tip:\
+Biztositani kell hogy ezek a memoriak csak olvashat\'f3k legyenek, mert indul\'e1skor RAM tesztet v\'e9gez\
+\pard\pardeftab720\sl340\sa0\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.pagetable.com/c64rom/c64rom_en.html"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 http://www.pagetable.com/c64rom/c64rom_en.html}}\
+\'a0\
+2.\
+Interrupt\
+\pard\pardeftab720\li960\fi-480\sl340\sa0\partightenfactor0
+\cf2 -
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 Ha I flag false\
+-
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 Mp \'96kent kb.60-szor\
+-
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 Stack be betenni:\
+\pard\pardeftab720\li1920\fi-480\sl340\sa0\partightenfactor0
+
+\f2 \cf2 o
+\f1\fs18 \'a0\'a0 
+\f0\fs30 Jelenlegi program mutato lo, hi\
+
+\f2 o
+\f1\fs18 \'a0\'a0 
+\f0\fs30 Status register\
+\pard\pardeftab720\li960\fi-480\sl340\sa0\partightenfactor0
+\cf2 -
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 $FF48-ra allitani a program mutat\'f3t\
+-
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 RTI-nel stackbol kivenni\
+-
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 Eltarolt cimre visszaallitani a program mutatot\
+\pard\pardeftab720\sl340\sa0\partightenfactor0
+\cf2 \'a0\
+3.\
+Keyboard\
+\pard\pardeftab720\li960\fi-480\sl340\sa0\partightenfactor0
+\cf2 -
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 $c6-ra kell tenni a keyboard bufferben levo billentyuk szamat\
+-
+\f1\fs18 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs30 $0277-t\uc0\u337 l a billenty\u369 ket (ASCII)\
+\pard\pardeftab720\sl340\sa0\partightenfactor0
+\cf2 \'a0\
+\'a0\
+}

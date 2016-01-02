@@ -1,0 +1,16 @@
+{
+  "name": "c64-emu",
+  "version": "1.0.0",
+  "description": "C64 Emulator in Javascript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tamas Santa",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.1.4",
+    "requirejs": "^2.1.22"
+  }
+}
