@@ -1,8 +1,8 @@
 define(function() {
 
     var Memory = function(){
-        var Size = 65536;
-        var Storage = new Uint8Array(Size);
+        this.Size = 65536;
+        var Storage = new Uint8Array(this.Size);
 
         this.Read = function(address) {
             return Storage[address];

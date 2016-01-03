@@ -14,10 +14,83 @@
 </head>
 <body>
 
-<div id="console">
-
-
+<div>
+    <h3>Open C64 Rom file to start</h3>
+    <span class="btn btn-primary btn-file">
+        Choose ROM <input type="file" id="file-input" />
+    </span>
 </div>
 
+
+<div>
+    <h3>Do the magic</h3>
+    <a href="#" id="btnExecuteNextStep" class="btn btn-primary" role="button">Execute Next Instruction</a>
+</div>
+
+<div>
+    <div>
+        <h3>Contents of ROM file (bin)</h3>
+        <pre id="file-content"></pre>
+    </div>
+
+    <div>
+        <h3>Last Instruction</h3>
+        <div id="cpu-last-instruction"></div>
+    </div>
+
+    <div>
+        <h3>CPU Registers</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">Accumulator (A):</div>
+                <div id="cpu-reg-A" class="col-xs-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Index (Y):</div>
+                <div id="cpu-reg-Y" class="col-xs-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Index (X):</div>
+                <div id="cpu-reg-X" class="col-xs-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Program Counter (PC):</div>
+                <div id="cpu-reg-PC" class="col-xs-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Stack Pointer (S):</div>
+                <div id="cpu-reg-S" class="col-xs-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Status Register Flags:</div>
+            </div>
+            <div class="row">
+                <div id="cpu-reg-flag-N" class="col-xs-2"> NEGATIVE </div>
+                <div id="cpu-reg-flag-V" class="col-xs-2"> OVERFLOW </div>
+                <div class="col-xs-1 bg-warning" style="min-height:25px;"> <!-- EMPTY --> </div>
+                <div id="cpu-reg-flag-B" class="col-xs-1"> BRK COMM </div>
+                <div id="cpu-reg-flag-D" class="col-xs-1"> DEC MODE </div>
+                <div id="cpu-reg-flag-I" class="col-xs-1"> IRQ DSBL </div>
+                <div id="cpu-reg-flag-Z" class="col-xs-1"> ZERO </div>
+                <div id="cpu-reg-flag-C" class="col-xs-1"> CARRY </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h3 id="memContentHead">Memory contents</h3>
+        <pre id="memory-contents">
+            <!-- Generate content here -->
+        </pre>
+    </div>
+</div>
+
+<div>
+    <h3 id="consoleHead">Debug Console</h3>
+        <ul id="console">
+
+
+        </ul>
+    </div>
 </body>
 </html>

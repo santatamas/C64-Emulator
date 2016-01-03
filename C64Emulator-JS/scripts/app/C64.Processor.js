@@ -1,4 +1,5 @@
-define(['app/C64.Memory','app/C64.Instructions', 'app/C64.Helpers'],function(memory,instructions, helpers){
+define(['app/C64.Memory','app/C64.Instructions','app/C64.Instructions.Impl', 'app/C64.Helpers'],
+    function(memory,instructions,impl, helpers){
 
     function Processor()
     {
@@ -20,37 +21,29 @@ define(['app/C64.Memory','app/C64.Instructions', 'app/C64.Helpers'],function(mem
             PCL = pcl;
             this.PC = helpers.intFromBytes([pch, pcl]);
 
-            while (true)
-            {
-                // Getting the next instruction byte code from memory
-                var instrCode = this.Memory.Read(this.PC++);
-                // Get instruction details from byte code
-                var instruction = instructions.GetAssemblyInstruction(instrCode);
+        };
 
-                // Get implementation function based on instruction type
-                var implementation = this.GetImplementation(instruction.Type);
+        this.ExecuteNextInstruction = function(){
+            // Getting the next instruction byte code from memory
+            var instrCode = this.Memory.Read(this.PC++);
+            // Get instruction details from byte code
+            var instruction = instructions.GetAssemblyInstruction(instrCode);
 
-                // Execute function on this object
-                implementation(instruction.Mode);
-            }
+            // for debug purposes
+            this.CurrentInstruction = instruction;
+
+            // Get implementation function based on instruction type
+            this.tempImpl = this.GetImplementation(instruction.Type);
+            this.tempImpl(instruction.mode);
         };
 
         this.GetImplementation = function(implementationType) {
             if(implementationType == instructions.AssemblyInstructionType.STA)
-                return STA;
+                return impl.STA;
 
             //TODO: implement and add other instructions
 
             return function(mode){console.log('Unimplemented method: ' + implementationType);}
-        };
-
-        var STA = function(mode){
-            if (mode == instructions.AddressingMode.Absolute) /*8D*/
-            {
-                this.Y = this.Memory.Read(this.PC++);
-                this.X = this.Memory.Read(this.PC++);
-                this.Memory.Write(helpers.intFromBytes(this.X, this.Y), this.A);
-            }
         };
     };
 

@@ -15,19 +15,34 @@ requirejs.config({
 require(['app/C64.Memory',
          'app/C64.Processor',
          'app/C64.Instructions',
+         'app/C64.ASMLoader',
          'app/C64.Helpers',
-         'jquery'], function(memory, processor, instructions, helpers, $){
+         'app/C64.Visuals.Debug',
+         'app/C64.Logger',
+         'jquery'], function(memory, processor, instructions, loader, helpers, visuals,logger, $){
 
     $(document).ready(function(){
-        //console.dir(memory);
-        //console.dir(typeof memory.Read(0));
 
-        //console.dir(instructions);
+        $('#memory-contents').hide();
+        $('#console').hide();
 
-        //console.log(memory === processor.Memory);
-        //console.dir(instructions.GetAssemblyInstruction(15));
 
-        var address = helpers.intFromBytes([1,255]);
-        console.log(helpers.decToBin(address));
+        $('#memContentHead').click(function() {
+          $('#memory-contents').toggle();
+        });
+
+        $('#consoleHead').click(function() {
+            $('#console').fadeToggle();
+        });
+
+        $('#btnExecuteNextStep').click(function(){
+            processor.ExecuteNextInstruction();
+            visuals.Refresh();
+        });
+
+        document.getElementById('file-input')
+            .addEventListener('change', loader.Load, false);
+
+        //TODO: implement event handling with pub/sub
     });
 });
