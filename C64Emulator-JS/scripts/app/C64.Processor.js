@@ -40,6 +40,8 @@ define(['app/C64.Memory','app/C64.Instructions','app/C64.Instructions.Impl', 'ap
         this.GetImplementation = function(implementationType) {
             if(implementationType == instructions.AssemblyInstructionType.STA)
                 return impl.STA;
+            if(implementationType == instructions.AssemblyInstructionType.LDA)
+                return impl.LDA;
 
             //TODO: implement and add other instructions
 

@@ -16,14 +16,19 @@ define(['app/C64.Helpers', 'app/C64.Memory','app/C64.Visuals.Debug','app/C64.Pro
                 var startPCH = 0;
                 var startPCL = 0;
 
+                var startAddress = helpers.intFromBytes([startPCH, startPCL]);
+
                 byteArray.forEach(function(byte) {
                     if(cnt == 0) {
                         startPCH = byte;
                     }
                     if(cnt == 1) {
                         startPCL = byte;
+                        startAddress = helpers.intFromBytes([startPCH, startPCL]);
                     }
-                    memory.Write(cnt, byte);
+                    else {
+                        memory.Write(startAddress + (cnt - 2), byte);
+                    }
                     cnt++;
                 });
 

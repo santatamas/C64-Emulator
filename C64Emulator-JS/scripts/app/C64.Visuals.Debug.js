@@ -44,8 +44,8 @@ define(['app/C64.Memory',
 
         $('#cpu-last-instruction').empty();
 
-        if(processor.CurrentInstruction !== 'undefined')
-            $('#cpu-last-instruction').append(processor.CurrentInstruction);
+        if(typeof processor.CurrentInstruction != 'undefined')
+            $('#cpu-last-instruction').append(processor.CurrentInstruction.Type);
     };
 
     var refreshROMContents = function(file) {
