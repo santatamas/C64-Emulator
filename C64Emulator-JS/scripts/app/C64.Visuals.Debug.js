@@ -10,14 +10,22 @@ define(['app/C64.Memory',
         var memoryContent = $('#memory-contents');
         memoryContent.empty();
 
-        var result = '';
+        var result = '<span>';
         var memorySize = memory.Size;
-
 
         for(var i = 0;i < memorySize; i++)
         {
-            result += memory.Read(i) + ' ';
+            if (i == processor.PC) {
+                result += '<span style="background-color: green;color:white;">';
+            }
+            result += memory.Read(i);
+            if (i == processor.PC) {
+                result += '</span>';
+            }
+            result += ' ';
         }
+
+        result += '</span>';
         memoryContent.append(result);
     };
 

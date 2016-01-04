@@ -1,5 +1,5 @@
-define(['app/C64.Memory','app/C64.Instructions','app/C64.Instructions.Impl', 'app/C64.Helpers'],
-    function(memory,instructions,impl, helpers){
+define(['app/C64.Memory', 'app/C64.Instructions', 'app/C64.Instructions.Impl', 'app/C64.Helpers', 'app/C64.Logger'],
+    function(memory, instructions, impl, helpers, logger){
 
     function Processor()
     {
@@ -34,18 +34,36 @@ define(['app/C64.Memory','app/C64.Instructions','app/C64.Instructions.Impl', 'ap
 
             // Get implementation function based on instruction type
             this.tempImpl = this.GetImplementation(instruction.Type);
-            this.tempImpl(instruction.mode);
+            this.tempImpl(instruction.Mode);
         };
 
-        this.GetImplementation = function(implementationType) {
-            if(implementationType == instructions.AssemblyInstructionType.STA)
-                return impl.STA;
-            if(implementationType == instructions.AssemblyInstructionType.LDA)
-                return impl.LDA;
+        this.GetImplementation = function (implementationType) {
 
-            //TODO: implement and add other instructions
+            switch (implementationType) {
 
-            return function(mode){console.log('Unimplemented method: ' + implementationType);}
+                case instructions.AssemblyInstructionType.STA:
+                    return impl.STA;
+                case instructions.AssemblyInstructionType.LDA:
+                    return impl.LDA;
+                case instructions.AssemblyInstructionType.BNE:
+                    return impl.BNE;
+                case instructions.AssemblyInstructionType.BRK:
+                    return impl.BRK;
+                case instructions.AssemblyInstructionType.CPX:
+                    return impl.CPX;
+                case instructions.AssemblyInstructionType.INX:
+                    return impl.INX;
+                case instructions.AssemblyInstructionType.INY:
+                    return impl.INY;
+                case instructions.AssemblyInstructionType.LDX:
+                    return impl.LDX;
+                case instructions.AssemblyInstructionType.TAY:
+                    return impl.TAY;
+                case instructions.AssemblyInstructionType.TYA:
+                    return impl.TYA;
+                default:
+                    return function (mode) { logger.Log('Unimplemented method: ' + implementationType); }
+            }
         };
     };
 
